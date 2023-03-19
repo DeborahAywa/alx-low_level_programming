@@ -12,7 +12,7 @@ int main(void)
 
 	for (x = 'a'; x <= 'z'; x++)
 		if (x != 'q' && x != 'e')
-			printf(x);
-	printf('\n');
+			putchar (x);
+	putchar ('\n');
 	return (0);
 }
