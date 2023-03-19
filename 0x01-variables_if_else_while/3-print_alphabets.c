@@ -1,19 +1,19 @@
-#include	<stdio.h>
+#include <stdio.h>
 
 /**
- * main-main	function
+ * main-main function
  *
- * Return:returns	0	
+ * Return:return a 0 at end of program
  */
 
-int	main(void)
+int main(void)
 {
 	char x;
 
 	for (x = 'a'; x <= 'z'; x++)
-		putchar (x);
+		putchar(x);
 	for (x = 'A'; x <= 'Z'; x++)
-		putchar (x);
-	putchar ('\n');
+		putchar(x);
+	putchar('\n');
 	return (0);
 }
