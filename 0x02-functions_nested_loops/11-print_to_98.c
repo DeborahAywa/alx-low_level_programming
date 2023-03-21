@@ -18,7 +18,7 @@ void print_to_98(int n)
 			if (i != 98)
 				_putchar(i + '0');
 			else if (i == 98)
-				_putchar(i'\n' + '0');
+				_putchar(i + '0');
 		}
 	}
 	else if (n > 98)
@@ -28,7 +28,7 @@ void print_to_98(int n)
 			if (j != 98)
 				_putchar(j + '0');
 			else if (j == 98)
-				_putchar(j'\n' + '0');
+				_putchar(j + '0');
 		}
 	}
 }
