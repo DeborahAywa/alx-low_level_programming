@@ -1,25 +1,25 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_array-function that prints n elements of an array
  *
  * @a:array name
  *
- * @n:number of elements of the array
+ * @n:number of elements of the array a
  */
 
 void print_array(int *a, int n)
 {
-	int i;
+	int length = 0;
 
-	for (i = 0; i < (n - 1); i++)
+	while (length < n)
 	{
-		_putchar("%d + '0'", a[i]);
-		_putchar('\n');
+		printf("%d", a[length]);
+
+		if (length != (n - 1))
+			printf(", ");
+		length++;
 	}
-	if (i == (n - 1))
-	{
-		_putchar("%d + '0'", a[n - 1]);
-		_putchar('\n');
-	}
+	_putchar('\n');
 }
