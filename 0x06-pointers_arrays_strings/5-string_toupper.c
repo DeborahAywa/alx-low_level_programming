@@ -4,7 +4,7 @@
  *string_toupper-function that capitalizes string
  *@str:string to be capitalized
  *
- *Return:returns string str
+ *Return:returns new string m
  */
 
 char *string_toupper(char *str)
@@ -17,8 +17,6 @@ char *string_toupper(char *str)
 		{
 			str[i] = str[i] - 32;
 		}
-		return (str);
 	}
 	return (str);
 }
-
