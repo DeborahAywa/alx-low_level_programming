@@ -1,9 +1,21 @@
+section .data
+msg db "Hello, Holberton\n", 0
+
+section .text
 global main
-external printf
+
+extern printf
+
 main:
-mov edi, format
-xor ear, eax
+push rbp
+mov rbp, rsp
+
+Call printf with the msg
+mov rdi msg:
+mov rax, 0
 call printf
-mov eax, 0
+
+Clean up and exit;
+mov rax, 0
+pop rbp
 ret
-format: db'Hello, Holberton\n',0
