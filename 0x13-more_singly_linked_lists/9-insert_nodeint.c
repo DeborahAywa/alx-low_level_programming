@@ -34,13 +34,21 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (newNode);
 	}
 	/* temp node to traverse list*/
-	for (i = 0; i < idx - 1; i++)
+	for (i = 0; temp && i < idx; i++)
 	{
-		temp = temp->next;
+		if (i == idx - 1)
+		{
+			/*point new node to what next of target was pointing*/
+			newNode->next = temp->next;
+			/*temp node to point to new node*/
+			temp->next = newNode;
+			/*return pointer to new node*/
+			return (newNode);
+		}
+		else
+		{
+			temp = temp->next;
+		}
 	}
-	/*point new node to what the next of target was pointing*/
-	newNode->next = temp->next;
-	/*temp node to now point to new node*/
-	temp->next = newNode;
-	return (newNode);
+	return (NULL);
 }
