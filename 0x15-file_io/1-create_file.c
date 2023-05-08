@@ -24,15 +24,15 @@ int create_file(const char *filename, char *text_content)
 			i++;
 		}
 	}
-	else
+
+	fptr = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
+	w = write(fptr, text_content, i);
+
+	if (fptr == -1 || w == -1)
 	{
-		fptr = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-		w = write(fptr, text_content, i);
-		if (fptr == -1 || w == -1)
-		{
-			return (-1);
-		}
+		return (-1);
 	}
+
 	close(fptr);
 	return (1);
 }
