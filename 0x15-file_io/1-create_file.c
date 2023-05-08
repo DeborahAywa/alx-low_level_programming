@@ -11,7 +11,7 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	int fptr, w, i = 0;
+	int fptr, w, length = 0;
 
 	if (filename == NULL)
 	{
@@ -19,14 +19,14 @@ int create_file(const char *filename, char *text_content)
 	}
 	if (text_content != NULL)
 	{
-		for (i = 0; text_content[i]; i++)
+		for (length = 0; text_content[length];)
 		{
-			i++;
+			length++;
 		}
 	}
 
 	fptr = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-	w = write(fptr, text_content, i);
+	w = write(fptr, text_content, length);
 
 	if (fptr == -1 || w == -1)
 	{
