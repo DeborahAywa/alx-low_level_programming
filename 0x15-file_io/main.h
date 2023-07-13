@@ -1,6 +1,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#define USAGE "Usage: cp file_from file_to \n"
+#define ERROR_READ_FAILURE "Error: Can't read from file %s\n"
+#define ERROR_WRITE_FAILURE "Error: Can't write to %s\n"
+#define ERROR_CLOSE_FAILURE "Error: Can't close fd %d\n"
+#define PERMISSIONS (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
+
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>

@@ -34,8 +34,7 @@ void close_file(int fptr)
 
 	if (p == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: can't close fptr %d\n", fptr);
-		exit(100);
+		dprintf(STDERR_FILENO, ERROR_CLOSE_FAILURE, fptr), exit(100);
 	}
 }
 
@@ -59,28 +58,25 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
+		dprintf(STDERR_FILENO, USAGE), exit(97);
 	}
 	size = create_space(argv[2]);
 	from = open(argv[1], O_RDONLY);
 	r = read(from, size, 1024);
-	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 06444);
+	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, PERMISSIONS);
 
 	do {
 		if (from == -1 || r == -1)
 		{
-			dprintf(STDERR_FILENO, "Error:Can't read from file %s\n", argv[1]);
+			dprintf(STDERR_FILENO, ERROR_READ_FAILURE, argv[1]), exit(98);
 			free(size);
-			exit(98);
 		}
 
 		w = write(to, size, r);
 		if (to == -1 || w == -1)
 		{
-			dprintf(STDERR_FILENO, "Error:Can't write to %s\n", argv[2]);
+			dprintf(STDERR_FILENO, ERROR_WRITE_FAILURE, argv[2]), exit(99);
 			free(size);
-			exit(99);
 		}
 		r = read(from, size, 1024);
 		to = open(argv[2], O_WRONLY | O_APPEND);
