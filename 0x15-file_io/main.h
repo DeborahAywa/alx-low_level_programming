@@ -6,6 +6,7 @@
 #define ERROR_WRITE_FAILURE "Error: Can't write to %s\n"
 #define ERROR_CLOSE_FAILURE "Error: Can't close fd %d\n"
 #define PERMISSIONS (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
+#define EI_NIDENT 16
 
 #include <stdlib.h>
 #include <sys/types.h>
